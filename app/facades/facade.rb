@@ -1,10 +1,12 @@
 class Facade
-  def initialize(json_response)
-    binding.pry
-    @json_response = json_response
+  def initialize(data)
+    @data = data
   end
 
   def students
-@json_response['data'][0]['attributes']['students']
+    thing = @data['data'][0]['attributes']['students']
+    thing.each do |student|
+      Student.new(student)
+    end
   end
 end
