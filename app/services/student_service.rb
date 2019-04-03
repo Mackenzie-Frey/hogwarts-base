@@ -4,6 +4,8 @@ class StudentService
   end
 
   def house_students
-    binding.pry
+    response = Faraday.get("http://hogwarts-it.herokuapp.com/api/v1/house/#{@house}?api_key=#{ENV['hogwarts_api_key']}")
+    result = JSON.parse(response.body)
+    # binding.pry
   end
 end
