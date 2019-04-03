@@ -9,16 +9,12 @@ context 'As a user visiting / ' do
 
     click_on "Get Students"
 
-    #with "house=slytherin" in the parameters
     expect(current_path).to eq('/search')
 
-    expect(page).to have_content("Slytherin")
     expect(page).to have_content("22 Students")
-    expect(page).to have_css(".students", count: 22)
+    expect(page).to have_css(".student", count: 22)
     expect(page).to have_css(".name", count: 22)
     expect(page).to have_css(".id", count: 22)
-    expect(page).to have_content("Name: Some Student name Id: -some id-")
+    expect(page).to have_content("Name: Lucius Malfoy Id: 63")
   end
 end
-
-# Fix 22 students

@@ -1,7 +1,7 @@
-22 Students
+<%= @facade.count %> Students
 
 <ul>
 <% @facade.each do |student| %>
-  <li class="id name">Name: <%= student.name %> Id: <%= student.id %></li>
+  <li class="id name student">Name: <%= student.name %> Id: <%= student.id %></li>
 <% end %>
 </ul>
