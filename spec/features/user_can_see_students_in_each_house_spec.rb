@@ -20,3 +20,5 @@ context 'As a user visiting / ' do
     expect(page).to have_content("Name: Some Student name Id: -some id-")
   end
 end
+
+# Fix 22 students
