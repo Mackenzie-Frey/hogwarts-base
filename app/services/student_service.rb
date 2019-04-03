@@ -1,7 +1,9 @@
 class StudentService
   def initialize(params)
     @house = params['house']
-    binding.pry
   end
 
+  def house_students
+    binding.pry
+  end
 end
