@@ -4,7 +4,11 @@ class StudentService
   end
 
   def house_students
-    response = conn.get("house/#{@house}")
+    get_json("house/#{@house}")
+  end
+
+  def get_json(url)
+    response = conn.get(url)
     JSON.parse(response.body)
   end
 
@@ -16,7 +20,6 @@ class StudentService
   end
 end
 
-# binding.pry
 # https://hogwarts-as-a-service.herokuapp.com/api/v1/house/
 # x_api_key
 # response = Faraday.get("http://hogwarts-it.herokuapp.com/api/v1/house/#{@house}?api_key=#{ENV['hogwarts_api_key']}")
