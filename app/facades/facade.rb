@@ -4,8 +4,7 @@ class Facade
   end
 
   def students
-    thing = @data['data'][0]['attributes']['students']
-    thing.map do |student|
+    @data.map do |student|
       Student.new(student)
     end
   end

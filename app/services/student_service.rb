@@ -9,7 +9,6 @@ class StudentService
   end
 
   def students(house_id)
-    binding.pry
     response = conn.get(house_id.to_s)
     parse(response)
   end
