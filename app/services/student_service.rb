@@ -4,10 +4,6 @@ class StudentService
   end
 
   def house_students
-    house
-  end
-
-  def house
     houses = parse(conn.get)
     house_id(houses)
   end
@@ -18,13 +14,14 @@ class StudentService
     parse(response)
   end
 
-
   def house_id(houses)
+    house_id = nil
     houses.each do |house|
       if house['name'] == @house
-        students(house['id'])
+        house_id = house['id']
       end
     end
+    students(house_id)
   end
 
   def parse(response)
