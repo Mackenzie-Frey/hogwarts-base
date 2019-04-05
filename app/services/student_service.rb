@@ -15,12 +15,9 @@ class StudentService
 
   def house_id(houses)
     sanitize_house
-    house_id = nil
-    houses.each do |house|
-      if house['name'] == @house
-        house_id = house['id']
-      end
-    end
+    house_id = houses.find do |house|
+      house['name'] == @house
+    end['id']
     students(house_id)
   end
 
