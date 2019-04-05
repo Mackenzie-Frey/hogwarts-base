@@ -7,7 +7,7 @@ context 'Student Service' do
     expect(service).to be_a(StudentService)
   end
 
-  it 'receives params and outputs a list of students' do
+  it '#get_house_students' do
     service = StudentService.new({"house"=>"Griffyndor"}).house_students
 
     expect(service[0]).to eq({"id"=>1, "name"=>"Albus Dumbledore"})
