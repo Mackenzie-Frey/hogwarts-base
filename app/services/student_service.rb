@@ -16,11 +16,17 @@ class StudentService
   def house_id(houses)
     house_id = nil
     houses.each do |house|
-      if house['name'] == @house
+      if house['name'] == sanitize(@house)
         house_id = house['id']
       end
     end
     students(house_id)
+  end
+
+  def sanitize(house)
+    if @house == 'Griffyndor'
+      @house = 'Gryffindor'
+    end
   end
 
   def parse(response)
