@@ -12,12 +12,12 @@ class StudentService
     house_id(response)
   end
 
-  def students
+  def students(house_id)
     binding.pry
+    
   end
 
   def house_id(response)
-    binding.pry
     response.each do |house|
       if house['name'] == @house
         students(house['id'])
