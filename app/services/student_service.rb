@@ -4,24 +4,26 @@ class StudentService
   end
 
   def house_students
-    JSON.parse((conn.get).body)
-    house_id
+    house
   end
 
-  def house_id
+  def house
+    response = JSON.parse((conn.get).body)
+    house_id(response)
+  end
+
+  def students
     binding.pry
-    id = nil
-    conn.each do |house|
+  end
+
+  def house_id(response)
+    binding.pry
+    response.each do |house|
       if house['name'] == @house
-        id = house['id']
+        students(house['id'])
       end
     end
-    binding.pry
-    id
   end
-
-  # curl -H 'X_API_KEY: oPGaRUMm7Cpisj6fosH8VhIgjnxx8zh1' 'https://hogwarts-as-a-service.herokuapp.com/api/v1/house'
-
 
   def conn
     Faraday.new(url: 'http://hogwarts-as-a-service.herokuapp.com/api/v1/house') do |faraday|
